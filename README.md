@@ -20,12 +20,14 @@ To be safely efficient of integrating new code from develop to main branch.
 
 ## Deployed Site
 
-https://github-actions-ci-cd-setup-vvhq.onrender.com
+
 
 ## License
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 This project is licensed under the MIT license. For more information, see [MIT License](https://opensource.org/licenses/MIT).
+
+
 
 
 

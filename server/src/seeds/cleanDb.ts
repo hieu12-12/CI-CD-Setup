@@ -1,20 +1,16 @@
+import models from '../models/index.js';
 import db from '../config/connection.js';
 
-export default async (collectionName: string) => {
+export default async (modelName: "Question", collectionName: string) => {
   try {
-    // Ensure database connection is ready
-    if (!db || db.readyState !== 1) {
-      throw new Error("Database is not connected.");
-    }
+    let modelExists = await models[modelName].db.db.listCollections({
+      name: collectionName
+    }).toArray()
 
-    // Check if the collection exists
-    const modelExists = await db.db?.listCollections({ name: collectionName }).toArray();
-
-    if (modelExists?.length) {
+    if (modelExists.length) {
       await db.dropCollection(collectionName);
     }
   } catch (err) {
-    console.error("Error in cleanDb:", err);
     throw err;
   }
-};
+}
